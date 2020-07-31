@@ -10,20 +10,96 @@
 <body>
   <div class="page">
     <header class="header">
-
+      <img class="header__logo" src="./images/header__logo.svg" alt="Логотип сайта">
     </header>
 
     <section class="profile">
-
+      <div class="profile__avatar">
+        <img class="profile__avatar_photo" src="./images/jak_iv_kusto.png" alt="Фото профиля">
+      </div>
+      <div class="profile__info">
+        <p class="profile__info_name">Жак-Ив Кусто</p>
+        <button class="profile__info_button-edit">
+          <img src="./images/button__edit.svg" alt="Кнопка редактирования профиля">
+        </button>
+        <p class="profile__info_about">Исследователь океана</p>
+      </div>
+      <button class="profile__button-add">
+        <img src="./images/button__plus.svg" alt="Кнопка добавления">
+      </button>
     </section>
 
     <section class="elements">
-
+      <div class="element">
+        <img class="element__photo" src="./images/karachaevsk.png" alt="Фото">
+        <div class="element__description">
+          <h2 class="element__title">Карачаевск</h2>
+          <button class="element__button">
+            <img class="element__button_like" src="./images/button__like.svg" alt="Кнопка лайк">
+          </button>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__photo" src="./images/elbrus.png" alt="Фото">
+        <div class="element__description">
+          <h2 class="element__title">Гора Эльбрус</h2>
+          <button class="element__button">
+            <img class="element__button_like" src="./images/button__like.svg" alt="Кнопка лайк">
+          </button>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__photo" src="./images/dombay.png" alt="Фото">
+        <div class="element__description">
+          <h2 class="element__title">Домбай</h2>
+          <button class="element__button">
+            <img class="element__button_like" src="./images/button__like.svg" alt="Кнопка лайк">
+          </button>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__photo" src="./images/elbrus.png" alt="Фото">
+        <div class="element__description">
+          <h2 class="element__title">Гора Эльбрус</h2>
+          <button class="element__button">
+            <img class="element__button_like" src="./images/button__like.svg" alt="Кнопка лайк">
+          </button>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__photo" src="./images/dombay.png" alt="Фото">
+        <div class="element__description">
+          <h2 class="element__title">Домбай</h2>
+          <button class="element__button">
+            <img class="element__button_like" src="./images/button__like.svg" alt="Кнопка лайк">
+          </button>
+        </div>
+      </div>
+      <div class="element">
+        <img class="element__photo" src="./images/karachaevsk.png" alt="Фото">
+        <div class="element__description">
+          <h2 class="element__title">Карачаево-Черкесская Республика</h2>
+          <button class="element__button">
+            <img class="element__button_like" src="./images/button__like.svg" alt="Кнопка лайк">
+          </button>
+        </div>
+      </div>
     </section>
 
     <footer class="footer">
-
+      <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
+
+    <div class="form">
+      <div class="form__overlay"></div>
+      <button class="form__button-close">
+        <img class="form__button-close" src="./images/button__close.svg" alt="Кнопка закрыть">
+      </button>
+      <h2 class="form__description">Редактировать профиль</h2>
+      <input class="form__field-name" type="text" placeholder="Жак-Ив Кусто" required></input>
+      <input class="form__field-about" type="text" placeholder="Исследователь океана" required></input>
+      <button class="form__button-save">Сохранить</button>
+    </div>
   </div>
 </body>
 </html>

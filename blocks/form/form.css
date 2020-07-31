@@ -1,0 +1,10 @@
+@import url(./__button-close/form__button-close.css);
+@import url(./__button-save/form__button-save.css);
+@import url(./__description/form__description.css);
+@import url(./__field-about/form__field-about.css);
+@import url(./__field-name/form__field-name.css);
+@import url(./__overlay/form__overlay.css);
+
+.form {
+    display: flex;
+}

@@ -1,0 +1,10 @@
+@import url(./__button/element__button.css);
+@import url(./__button/_like/element__button_like.css);
+@import url(./__description/element__description.css);
+@import url(./__photo/element__photo.css);
+@import url(./__title/element__title.css);
+
+.element {
+    display: flex;
+    flex-direction: column;
+}

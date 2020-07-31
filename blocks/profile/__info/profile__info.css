@@ -1,0 +1,14 @@
+.profile__info {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 16px 17px;
+    max-width: 336px;
+    color: #fff;
+}
+
+@media all and  (max-width: 600px) {
+    .profile__info {
+        justify-content: center;
+    }
+}
