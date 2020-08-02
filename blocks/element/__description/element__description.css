@@ -1,7 +1,8 @@
 .element__description {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: #fff;
-    padding: 25px 21px 31px;
+    padding: 25px 15px 31px 21px;
     border-radius: 0 0 10px 10px;
 }

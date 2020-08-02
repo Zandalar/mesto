@@ -1,15 +1,14 @@
 .profile__button-add {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
+    background-image: url(../../../../images/button__plus.svg);
+    background-color: #000;
+    background-repeat: no-repeat;
+    background-position: center;
     width: 150px;
     height: 50px;
     border: 2px solid #fff;
-    box-sizing: border-box;
-    background: none;
     border-radius: 2px;
     margin-left: auto;
+    outline: none;
 }
 
 .profile__button-add:hover {
