@@ -15,8 +15,10 @@ function popupOpened() {
 
 function popupSubmitHandler(evt) {
   evt.preventDefault();
-  profileName.textContent = newProfileName.value;
-  profileAbout.textContent = newPofileAbout.value;
+  let inputName = popup.querySelector('#popup__field_name');
+  let inputAbout = popup.querySelector('#popup__field-about');
+  profileName.textContent = inputName.value;
+  profileAbout.textContent = inputAbout.value;
 }
 
 editProfile.addEventListener('click', popupOpened);
