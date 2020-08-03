@@ -10,5 +10,7 @@
     .profile__info_about {
         font-size: 14px;
         line-height: 17px;
+        grid-column-start: 1;
+        grid-column-end: 3;
     }
 }

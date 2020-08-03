@@ -10,6 +10,8 @@
   color: #fff;
   outline: none;
   border: none;
+  margin: 0;
+  padding: 0;
 }
 
 .popup__button-save:hover {

@@ -1,4 +1,4 @@
-.profile__info {
+/*.profile__info {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -7,9 +7,22 @@
     max-width: 336px;
     color: #fff;
 }
+*/
+
+.profile__info {
+    display: grid;
+    grid-template-columns: minmax(min-content, max-content) 1fr;
+    gap: 16px 17px;
+    align-items: baseline;
+    color: #fff;
+    margin-right: 20px;
+}
+
 
 @media all and  (max-width: 600px) {
     .profile__info {
-        justify-content: center;
+        text-align: center;
+        gap: 14px 5px;
+        margin: 0 auto;
     }
 }
