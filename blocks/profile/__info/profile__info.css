@@ -1,23 +1,18 @@
-/*.profile__info {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px 17px;
-    max-width: 336px;
-    color: #fff;
-}
-*/
-
 .profile__info {
+    width: 60%;
     display: grid;
-    grid-template-columns: minmax(min-content, max-content) 1fr;
+    grid-template-columns: minmax(200px, min-content) min-content;
     gap: 16px 17px;
     align-items: baseline;
     color: #fff;
     margin-right: 20px;
 }
 
+@media all and  (max-width: 850px) {
+    .profile__info {
+        justify-content: center;
+    }
+}
 
 @media all and  (max-width: 600px) {
     .profile__info {
