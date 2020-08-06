@@ -14,8 +14,10 @@
   margin: auto;
 }
 
-@media all and (max-width: 750px) {
+
+
+@media all and (max-width: 600px) {
   .popup__container {
-    min-width: auto;
+    min-width: 75%;
   }
 }
