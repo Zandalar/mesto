@@ -6,7 +6,8 @@ let placeContainer = document.querySelector('#popup__place');
 
 let editButton = document.querySelector('.profile__info_button-edit');
 let addCardButton = document.querySelector('.profile__button-add');
-let closeButton = document.querySelector('.popup__button-close');
+let closeProfileButton = document.querySelector('#profile__button-close');
+let closePlaceButton = document.querySelector('#place__button-close');
 let saveProfileButton = popup.querySelector('.popup__button-save');
 
 let profileName = document.querySelector('.profile__info_name');
@@ -30,22 +31,15 @@ function saveProfileForm(event) {
   togglePopup(profileContainer);
 }
 
-function closePopup() {
-  let closeButtonSelector = document.querySelector('.');
-  if (closeButtonSelector.classList.contains('popup_opened')) {
-    closeButtonSelector.classList.remove('popup_opened');
-  }
-}
-
 editButton.addEventListener('click', () => {
   togglePopup(profileContainer);
   fillProfileForm();
 })
 
-closeButton.addEventListener('click', closePopup);    //хочу повесить на один обработчик события все кнопки закрытия(нужно прописать логику поиска открытого попапа)
+closeProfileButton.addEventListener('click', () => {togglePopup(profileContainer)});
 
-addCardButton.addEventListener('click', () => {
-  togglePopup(placeContainer);
-})
+closePlaceButton.addEventListener('click', () => {togglePopup(placeContainer)});
+
+addCardButton.addEventListener('click', () => {togglePopup(placeContainer)});
 
 profileForm.addEventListener('submit', saveProfileForm);
