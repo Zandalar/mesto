@@ -7,11 +7,13 @@ let profileDescription = document.querySelector('.profile__info_about');
 let newProfileName = document.querySelector('#profile__name');
 let newProfileDescription = document.querySelector('#profile__description');
 let cardsContainer = document.querySelector('.element__table');
+let imagePopupContainer = document.querySelector('#popup__image');
 
 const editButton = document.querySelector('.profile__info_button-edit');
 const addCardButton = document.querySelector('.profile__button-add');
 const closeProfileButton = document.querySelector('#profile__button-close');
 const closePlaceButton = document.querySelector('#place__button-close');
+const closeImageButton = document.querySelector('#image__button-close');
 const likeButton = document.querySelectorAll('.elements');
 const deleteButton = document.querySelectorAll('.elements');
 
@@ -65,7 +67,7 @@ function addCard(name, link) {
   const addNewCard = templateContainer.cloneNode('true');
 
   addNewCard.querySelector('.element__photo').src = link;
-  addNewCard.querySelector('.element__photo').alt = `Фото ${name}`;
+  addNewCard.querySelector('.element__photo').alt = name;
   addNewCard.querySelector('.element__title').textContent = name;
 
   document.querySelector('#place__name').textContent = name;
@@ -80,7 +82,7 @@ function renderCards(name, link) {
   const addNewCard = templateContainer.cloneNode('true');
 
   addNewCard.querySelector('.element__photo').src = link;
-  addNewCard.querySelector('.element__photo').alt = `Фото ${name}`;
+  addNewCard.querySelector('.element__photo').alt = name;
   addNewCard.querySelector('.element__title').textContent = name;
 
   cardsContainer.append(addNewCard);
@@ -107,6 +109,8 @@ closeProfileButton.addEventListener('click', () => {togglePopup(profileContainer
 
 closePlaceButton.addEventListener('click', () => {togglePopup(placeContainer)});
 
+closeImageButton.addEventListener('click', () => {togglePopup(imagePopupContainer)});
+
 addCardButton.addEventListener('click', () => {togglePopup(placeContainer)});
 
 profileForm.addEventListener('submit', saveProfileForm);
@@ -125,4 +129,26 @@ deleteButton.forEach(function (item) {
   item.addEventListener('click', deleteCard);
 })
 
+cardsContainer.addEventListener('click', openBigPhoto);
+
 initialCards.forEach((item) => renderCards(item.name, item.link));
+
+function openImage(evt) {
+  const link = evt.target.getAttribute('src');
+  const imageAlt = evt.target.getAttribute('alt');
+  const bigPhoto = document.querySelector('.popup__image');
+  const imageTitle = document.querySelector('.popup__title_image');
+
+  bigPhoto.setAttribute('src', link);
+  bigPhoto.setAttribute('alt', imageAlt);
+  imageTitle.textContent = imageAlt;
+}
+
+function openBigPhoto(evt) {
+  if (evt.target.classList.contains('element__photo')) {
+    openImage(evt);
+    togglePopup(imagePopupContainer);
+  }
+}
+
+
