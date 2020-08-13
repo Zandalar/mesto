@@ -9,7 +9,9 @@
 @import url(./__title/_image/popup__title_image.css);
 
 .popup {
-  display: none;
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .popup::before {
