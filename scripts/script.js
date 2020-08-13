@@ -35,8 +35,8 @@ const initialCards = [
       link: './images/saint_petersburg.png'
   },
   {
-      name: 'Карелия, Кижи',
-      link: './images/kiji.png'
+      name: 'Карелия',
+      link: './images/kareliya.png'
   },
   {
       name: 'Байкал',
@@ -114,13 +114,13 @@ editButton.addEventListener('click', () => {
   fillProfileForm();
 })
 
-closeProfileButton.addEventListener('click', () => {togglePopup(profileContainer)});
+closeProfileButton.addEventListener('click', () => togglePopup(profileContainer));
 
-closePlaceButton.addEventListener('click', () => {togglePopup(placeContainer)});
+closePlaceButton.addEventListener('click', () => togglePopup(placeContainer));
 
-closeImageButton.addEventListener('click', () => {togglePopup(imagePopupContainer)});
+closeImageButton.addEventListener('click', () => togglePopup(imagePopupContainer));
 
-addCardButton.addEventListener('click', () => {togglePopup(placeContainer)});
+addCardButton.addEventListener('click', () => togglePopup(placeContainer));
 
 profileForm.addEventListener('submit', saveProfileForm);
 

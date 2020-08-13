@@ -10,7 +10,7 @@
     display: grid;
     grid-template-columns: 18px;
     grid-template-rows: 4.5px 13.5px;
-    grid-column-gap: 1.3px;
+    column-gap: 1.3px;
 }
 
 .element__button-delete:hover {

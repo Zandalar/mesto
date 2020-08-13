@@ -1,8 +1,6 @@
 .popup__container_image {
   display: flex;
   flex-direction: column;
-  max-width: 75vw;
-  max-height: 75vh;
   position: fixed;
   top: 50%;
   left: 50%;

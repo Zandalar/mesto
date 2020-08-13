@@ -2,8 +2,8 @@
     width: 60%;
     display: grid;
     grid-template-columns: minmax(200px, min-content) 18px;
-    grid-row-gap: 16px;
-    grid-column-gap: 17px;
+    row-gap: 16px;
+    column-gap: 17px;
     align-items: baseline;
     color: #fff;
     margin-right: 20px;
@@ -18,8 +18,8 @@
 @media all and  (max-width: 600px) {
     .profile__info {
         text-align: center;
-        grid-row-gap: 14px;
-        grid-column-gap: 5px;
+        row-gap: 14px;
+        column-gap: 5px;
         margin: 0 auto;
     }
 }
