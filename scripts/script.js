@@ -19,28 +19,28 @@ const deleteButton = document.querySelectorAll('.elements');
 
 const initialCards = [
   {
-      name: 'Москва',
-      link: './images/moscow.png'
+      name: 'Архыз',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+      name: 'Челябинская область',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+      name: 'Иваново',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
   },
   {
       name: 'Камчатка',
-      link: './images/kamchatka.png'
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
   },
   {
-      name: 'Крым',
-      link: './images/krym.png'
-  },
-  {
-      name: 'Санкт-Петербург',
-      link: './images/saint_petersburg.png'
-  },
-  {
-      name: 'Карелия',
-      link: './images/kareliya.png'
+      name: 'Холмогорский район',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
   },
   {
       name: 'Байкал',
-      link: './images/baykal.png'
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
 
