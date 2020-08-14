@@ -9,77 +9,78 @@
 
 <body>
   <div class="page">
-    <header class="header">
-      <img class="header__logo" src="./images/header__logo.svg" alt="Логотип сайта">
-    </header>
+    <div class="content">
+      <header class="header">
+        <img class="header__logo" src="./images/header__logo.svg" alt="Логотип сайта">
+      </header>
 
-    <main class="main">
-      <section class="profile">
-        <img class="profile__avatar" src="./images/jak_iv_kusto.png" alt="Фото профиля">
-        <div class="profile__info">
-          <h1 class="profile__info_name">Жак-Ив Кусто</h1>
-          <button class="profile__info_button-edit" id="button-edit" name="button-edit" type="button"></button>
-          <h2 class="profile__info_about">Исследователь океана</h2>
+      <main class="main">
+        <section class="profile">
+          <img class="profile__avatar" src="./images/jak_iv_kusto.png" alt="Фото профиля">
+          <div class="profile__info">
+            <h1 class="profile__info_name">Жак-Ив Кусто</h1>
+            <button class="profile__info_button-edit" id="button-edit" name="button-edit" type="button"></button>
+            <h2 class="profile__info_about">Исследователь океана</h2>
+          </div>
+          <button class="profile__button-add" id="button-add" name="button-add" type="button"></button>
+        </section>
+
+        <section class="elements">
+          <ul class="element__table">
+          </ul>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+      </footer>
+
+      <div class="popup" id="popup__profile">
+        <div class="popup__container">
+          <button class="popup__button-close" id="profile__button-close" name="profile__button-close" type="button"></button>
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <form class="popup__form" id="profile__form" name="profile__form">
+            <input class="popup__field" id="profile__name" name="profile__name" type="text">
+            <input class="popup__field" id="profile__description" name="profile__description" type="text">
+            <button class="popup__button-save" id="profile__button-save" name="profile__button-save" type="submit">Сохранить</button>
+          </form>
         </div>
-        <button class="profile__button-add" id="button-add" name="button-add" type="button"></button>
-      </section>
-
-      <section class="elements">
-        <ul class="element__table">
-        </ul>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
-    </footer>
-
-    <div class="popup" id="popup__profile">
-      <div class="popup__container">
-        <button class="popup__button-close" id="profile__button-close" name="profile__button-close" type="button"></button>
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" id="profile__form" name="profile__form">
-          <input class="popup__field" id="profile__name" name="profile__name" type="text">
-          <input class="popup__field" id="profile__description" name="profile__description" type="text">
-          <button class="popup__button-save" id="profile__button-save" name="profile__button-save" type="submit">Сохранить</button>
-        </form>
       </div>
-    </div>
 
-    <div class="popup" id="popup__place">
-      <div class="popup__container">
-        <button class="popup__button-close" id="place__button-close" name="place__button-close" type="button"></button>
-        <h2 class="popup__title">Новое место</h2>
-        <form class="popup__form" id="place__form" name="place__form">
-          <input class="popup__field" id="place__name" name="place__name" type="text" required placeholder="Название">
-          <input class="popup__field" id="place__link" name="place__link" type="text" required placeholder="Ссылка на картинку">
-          <button class="popup__button-save" id="place__button-save" name="place__button-save" type="submit">Создать</button>
-        </form>
-      </div>
-    </div>
-
-    <div class="popup" id="popup__image">
-      <div class="popup__container_image">
-        <img class="popup__image" src='' alt=''>
-        <h2 class="popup__title_image"></h2>
-        <button class="popup__button-close" id="image__button-close" name="image__button-close" type="button"></button>
-      </div>
-    </div>
-
-    <template id="templateContainer">
-      <li class="element">
-        <button class="element__button-delete" type="button">
-          <div class="element__button-delete_top"></div>
-          <div class="element__button-delete_bottom"></div>
-        </button>
-        <img class="element__photo">
-        <div class="element__description">
-          <h2 class="element__title"></h2>
-          <button class="element__button-like" type="button"></button>
+      <div class="popup" id="popup__place">
+        <div class="popup__container">
+          <button class="popup__button-close" id="place__button-close" name="place__button-close" type="button"></button>
+          <h2 class="popup__title">Новое место</h2>
+          <form class="popup__form" id="place__form" name="place__form">
+            <input class="popup__field" id="place__name" name="place__name" type="text" required placeholder="Название">
+            <input class="popup__field" id="place__link" name="place__link" type="text" required placeholder="Ссылка на картинку">
+            <button class="popup__button-save" id="place__button-save" name="place__button-save" type="submit">Создать</button>
+          </form>
         </div>
-      </li>
-    </template>
+      </div>
 
+      <div class="popup" id="popup__image">
+        <div class="popup__container_image">
+          <img class="popup__image" src='' alt=''>
+          <h2 class="popup__title_image"></h2>
+          <button class="popup__button-close" id="image__button-close" name="image__button-close" type="button"></button>
+        </div>
+      </div>
+
+      <template id="templateContainer">
+        <li class="element">
+          <button class="element__button-delete" type="button">
+            <div class="element__button-delete_top"></div>
+            <div class="element__button-delete_bottom"></div>
+          </button>
+          <img class="element__photo">
+          <div class="element__description">
+            <h2 class="element__title"></h2>
+            <button class="element__button-like" type="button"></button>
+          </div>
+        </li>
+      </template>
+    </div>
   </div>
 <script src="./scripts/script.js"></script>
 </body>

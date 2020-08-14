@@ -2,12 +2,18 @@ const profileForm = document.querySelector('#profile__form');
 const placeForm = document.querySelector('#place__form');
 const profileContainer = document.querySelector('#popup__profile');
 const placeContainer = document.querySelector('#popup__place');
-const profileName = document.querySelector('.profile__info_name');
-const profileDescription = document.querySelector('.profile__info_about');
-const newProfileName = document.querySelector('#profile__name');
-const newProfileDescription = document.querySelector('#profile__description');
 const cardsContainer = document.querySelector('.element__table');
 const imagePopupContainer = document.querySelector('#popup__image');
+const templateContainer = document.querySelector('#templateContainer');
+
+const bigPhoto = document.querySelector('.popup__image');
+const imageTitle = document.querySelector('.popup__title_image');
+const profileName = document.querySelector('.profile__info_name');
+const profileDescription = document.querySelector('.profile__info_about');
+const inputProfileName = document.querySelector('#profile__name');
+const inputProfileDescription = document.querySelector('#profile__description');
+const inputPlaceName = document.querySelector('#place__name');
+const inputPlaceLink = document.querySelector('#place__link');
 
 const editButton = document.querySelector('.profile__info_button-edit');
 const addCardButton = document.querySelector('.profile__button-add');
@@ -49,14 +55,14 @@ function togglePopup(container) {
 }
 
 function fillProfileForm() {
-  newProfileName.value = profileName.textContent;
-  newProfileDescription.value = profileDescription.textContent;
+  inputProfileName.value = profileName.textContent;
+  inputProfileDescription.value = profileDescription.textContent;
 }
 
 function saveProfileForm(event) {
   event.preventDefault();
-  profileName.textContent = newProfileName.value;
-  profileDescription.textContent = newProfileDescription.value;
+  profileName.textContent = inputProfileName.value;
+  profileDescription.textContent = inputProfileDescription.value;
   togglePopup(profileContainer);
 }
 
@@ -69,12 +75,21 @@ function addCard(name, link) {
 }
 
 function renderCards(name, link) {
-  const templateContainer = document.querySelector('#templateContainer').content;
-  const addNewCard = templateContainer.cloneNode('true');
+  const addNewCard = templateContainer.content.cloneNode('true');
 
   addNewCard.querySelector('.element__photo').src = link;
   addNewCard.querySelector('.element__photo').alt = name;
   addNewCard.querySelector('.element__title').textContent = name;
+
+  likeButton.forEach(function (item) {
+  item.addEventListener('click', addLike);
+  })
+
+  deleteButton.forEach(function (item) {
+  item.addEventListener('click', deleteCard);
+  })
+
+  cardsContainer.addEventListener('click', openBigPhoto);
 
   cardsContainer.prepend(addNewCard);
 }
@@ -94,9 +109,7 @@ function deleteCard(evt) {
 function openImage(evt) {
   const link = evt.target.getAttribute('src');
   const imageAlt = evt.target.getAttribute('alt');
-  const bigPhoto = document.querySelector('.popup__image');
-  const imageTitle = document.querySelector('.popup__title_image');
-
+  
   bigPhoto.setAttribute('src', link);
   bigPhoto.setAttribute('alt', imageAlt);
   imageTitle.textContent = imageAlt;
@@ -109,10 +122,7 @@ function openBigPhoto(evt) {
   }
 }
 
-editButton.addEventListener('click', () => {
-  togglePopup(profileContainer);
-  fillProfileForm();
-})
+editButton.addEventListener('click', () => {togglePopup(profileContainer), fillProfileForm()});
 
 closeProfileButton.addEventListener('click', () => togglePopup(profileContainer));
 
@@ -124,20 +134,6 @@ addCardButton.addEventListener('click', () => togglePopup(placeContainer));
 
 profileForm.addEventListener('submit', saveProfileForm);
 
-placeForm.addEventListener('submit', () => {
-  const name = document.querySelector('#place__name');
-  const link = document.querySelector('#place__link');
-  addCard(name.value, link.value);
-})
-
-cardsContainer.addEventListener('click', openBigPhoto);
-
-likeButton.forEach(function (item) {
-  item.addEventListener('click', addLike);
-})
-
-deleteButton.forEach(function (item) {
-  item.addEventListener('click', deleteCard);
-})
+placeForm.addEventListener('submit', () => addCard(inputPlaceName.value, inputPlaceLink.value));
 
 initialCards.forEach((item) => renderCards(item.name, item.link));
