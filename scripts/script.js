@@ -20,8 +20,6 @@ const addCardButton = document.querySelector('.profile__button-add');
 const closeProfileButton = document.querySelector('#profile__button-close');
 const closePlaceButton = document.querySelector('#place__button-close');
 const closeImageButton = document.querySelector('#image__button-close');
-const likeButton = document.querySelectorAll('.elements');
-const deleteButton = document.querySelectorAll('.elements');
 
 const initialCards = [
   {
@@ -71,55 +69,49 @@ function addCard(name, link) {
 
   initialCards.unshift({name: name, link: link});
   togglePopup(placeContainer);
-  renderCards(name, link);
+  renderCards(createCard(name, link));
 }
 
-function renderCards(name, link) {
+function renderCards(card) {
+  cardsContainer.prepend(card);
+}
+
+function createCard(name, link) {
   const addNewCard = templateContainer.content.cloneNode('true');
 
   addNewCard.querySelector('.element__photo').src = link;
   addNewCard.querySelector('.element__photo').alt = name;
   addNewCard.querySelector('.element__title').textContent = name;
 
-  likeButton.forEach(function (item) {
-  item.addEventListener('click', addLike);
-  })
-
-  deleteButton.forEach(function (item) {
-  item.addEventListener('click', deleteCard);
-  })
-
-  cardsContainer.addEventListener('click', openBigPhoto);
-
-  cardsContainer.prepend(addNewCard);
+  const likeButton = addNewCard.querySelector('.element__button-like');
+  likeButton.addEventListener('click', addLike);
+  const deleteButton = addNewCard.querySelector('.element__button-delete');
+  deleteButton.addEventListener('click', deleteCard);
+  const cardPhoto = addNewCard.querySelector('.element__photo');
+  cardPhoto.addEventListener('click', openBigPhoto);
+  return addNewCard;
 }
 
 function addLike(evt) {
-  if (evt.target.classList.contains('element__button-like')) {
-    evt.target.classList.toggle('element__button-like_active');
-  }
+  evt.target.classList.toggle('element__button-like_active');
 }
 
 function deleteCard(evt) {
-  if (evt.target.classList.contains('element__button-delete_bottom') || evt.target.classList.contains('element__button-delete_top')) {
-    evt.target.closest('.element').remove();
-  }
+  evt.target.closest('.element').remove();
 }
 
 function openImage(evt) {
   const link = evt.target.getAttribute('src');
   const imageAlt = evt.target.getAttribute('alt');
-  
+
   bigPhoto.setAttribute('src', link);
   bigPhoto.setAttribute('alt', imageAlt);
   imageTitle.textContent = imageAlt;
 }
 
 function openBigPhoto(evt) {
-  if (evt.target.classList.contains('element__photo')) {
-    openImage(evt);
-    togglePopup(imagePopupContainer);
-  }
+  openImage(evt);
+  togglePopup(imagePopupContainer);
 }
 
 editButton.addEventListener('click', () => {togglePopup(profileContainer), fillProfileForm()});
@@ -136,4 +128,4 @@ profileForm.addEventListener('submit', saveProfileForm);
 
 placeForm.addEventListener('submit', () => addCard(inputPlaceName.value, inputPlaceLink.value));
 
-initialCards.forEach((item) => renderCards(item.name, item.link));
+initialCards.forEach((item) => {createCard(item.name, item.link), renderCards(createCard(item.name, item.link))});
