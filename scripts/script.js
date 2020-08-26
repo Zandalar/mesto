@@ -65,8 +65,6 @@ function saveProfileForm(event) {
 }
 
 function addCard(name, link) {
-  event.preventDefault();
-
   initialCards.unshift({name: name, link: link});
   togglePopup(placeContainer);
   renderCards(createCard(name, link));
@@ -77,19 +75,19 @@ function renderCards(card) {
 }
 
 function createCard(name, link) {
-  const addNewCard = templateContainer.content.cloneNode('true');
+  const newCard = templateContainer.content.cloneNode(true);
 
-  addNewCard.querySelector('.element__photo').src = link;
-  addNewCard.querySelector('.element__photo').alt = name;
-  addNewCard.querySelector('.element__title').textContent = name;
+  newCard.querySelector('.element__photo').src = link;
+  newCard.querySelector('.element__photo').alt = name;
+  newCard.querySelector('.element__title').textContent = name;
 
-  const likeButton = addNewCard.querySelector('.element__button-like');
+  const likeButton = newCard.querySelector('.element__button-like');
   likeButton.addEventListener('click', addLike);
-  const deleteButton = addNewCard.querySelector('.element__button-delete');
+  const deleteButton = newCard.querySelector('.element__button-delete');
   deleteButton.addEventListener('click', deleteCard);
-  const cardPhoto = addNewCard.querySelector('.element__photo');
+  const cardPhoto = newCard.querySelector('.element__photo');
   cardPhoto.addEventListener('click', openBigPhoto);
-  return addNewCard;
+  return newCard;
 }
 
 function addLike(evt) {
