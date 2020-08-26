@@ -5,3 +5,9 @@
   border: 1px solid #000;
   box-sizing: border-box;
 }
+
+.popup__button-save_disabled:hover {
+  opacity: 0;
+  transform: none;
+  cursor: pointer;
+}
