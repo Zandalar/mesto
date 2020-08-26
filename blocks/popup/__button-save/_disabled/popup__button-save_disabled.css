@@ -7,7 +7,7 @@
 }
 
 .popup__button-save_disabled:hover {
-  opacity: 0;
-  transform: none;
+  opacity: .2;
+  transform: opacity 2s;
   cursor: pointer;
 }

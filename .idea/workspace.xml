@@ -28,7 +28,6 @@
     <list default="true" id="d025e371-7988-40af-88a0-965eee36698c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blocks/popup/__button-save/_disabled/popup__button-save_disabled.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/popup/__button-save/_disabled/popup__button-save_disabled.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/popup/__button-save/popup__button-save.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/popup/__button-save/popup__button-save.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/validate.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +71,7 @@
       <workItem from="1598422736065" duration="5254000" />
       <workItem from="1598429714184" duration="15320000" />
       <workItem from="1598458236533" duration="12000" />
-      <workItem from="1598458276102" duration="3904000" />
+      <workItem from="1598458276102" duration="5324000" />
     </task>
     <servers />
   </component>
