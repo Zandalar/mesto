@@ -26,8 +26,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d025e371-7988-40af-88a0-965eee36698c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mesto-master.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mesto-master.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blocks/popup/__button-save/_disabled/popup__button-save_disabled.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/popup/__button-save/_disabled/popup__button-save_disabled.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blocks/popup/__container/popup__container.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/popup/__container/popup__container.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blocks/popup/__field-error/popup__field-error.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/popup/__field-error/popup__field-error.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/validate.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,6 +53,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1gXEXbKNgLEsQ85aK1GK1MjPCcB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -72,6 +79,8 @@
       <workItem from="1598429714184" duration="15320000" />
       <workItem from="1598458236533" duration="12000" />
       <workItem from="1598458276102" duration="5324000" />
+      <workItem from="1598509042313" duration="17230000" />
+      <workItem from="1598544739539" duration="143000" />
     </task>
     <servers />
   </component>
@@ -100,8 +109,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="586" y="198" key="#Inspections" timestamp="1598529364698">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="586" y="198" key="#Inspections/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598529364698" />
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598465117129">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -114,9 +128,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598465140450" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1598424037209">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1598527986764">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598424037209" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598527986764" />
   </component>
 </project>
