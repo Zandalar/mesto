@@ -1,3 +1,4 @@
+const popupOverlay = document.querySelector('.popup');
 const profileForm = document.querySelector('#profile__form');
 const placeForm = document.querySelector('#place__form');
 const profileContainer = document.querySelector('#popup__profile');
@@ -17,9 +18,12 @@ const inputPlaceLink = document.querySelector('#place__link');
 
 const editButton = document.querySelector('.profile__info_button-edit');
 const addCardButton = document.querySelector('.profile__button-add');
+//Ненужный кусок старого кода закрытия попапов
+/*
 const closeProfileButton = document.querySelector('#profile__button-close');
 const closePlaceButton = document.querySelector('#place__button-close');
 const closeImageButton = document.querySelector('#image__button-close');
+ */
 
 const initialCards = [
   {
@@ -48,8 +52,12 @@ const initialCards = [
   }
 ];
 
-function togglePopup(container) {
-  container.classList.toggle('popup_opened');
+function openPopup(container) {
+  container.classList.add('popup_opened');
+}
+
+function closePopup(evt) {
+  evt.target.closest('.popup').classList.remove('popup_opened');
 }
 
 function fillProfileForm() {
@@ -57,17 +65,17 @@ function fillProfileForm() {
   inputProfileDescription.value = profileDescription.textContent;
 }
 
-function saveProfileForm(event) {
-  event.preventDefault();
+function saveProfileForm(evt) {
+  evt.preventDefault();
   profileName.textContent = inputProfileName.value;
   profileDescription.textContent = inputProfileDescription.value;
-  togglePopup(profileContainer);
+  closePopup(evt);
 }
 
-function addCard(name, link) {
-  initialCards.unshift({name: name, link: link});
-  togglePopup(placeContainer);
+function addCard(name, link, evt) {
+  initialCards.push({name: name, link: link});
   renderCards(createCard(name, link));
+  closePopup(evt);
 }
 
 function renderCards(card) {
@@ -109,21 +117,49 @@ function openImage(evt) {
 
 function openBigPhoto(evt) {
   openImage(evt);
-  togglePopup(imagePopupContainer);
+  openPopup(imagePopupContainer);
 }
 
-editButton.addEventListener('click', () => {togglePopup(profileContainer), fillProfileForm()});
+function setCloseButtons() {
+  const closeButtonList = Array.from(document.querySelectorAll('.popup__button-close'));
+    closeButtonList.forEach((closeButton) => {
+      closeButton.addEventListener ('click', (evt) => {
+        closePopup(evt);
+      })
+    })
+}
 
-closeProfileButton.addEventListener('click', () => togglePopup(profileContainer));
+setCloseButtons();
 
-closePlaceButton.addEventListener('click', () => togglePopup(placeContainer));
+editButton.addEventListener('click', () => {
+  openPopup(profileContainer);
+  fillProfileForm();
+});
 
-closeImageButton.addEventListener('click', () => togglePopup(imagePopupContainer));
+//Ненужный кусок старого кода закрытия попапов
+/*
+closeProfileButton.addEventListener('click', () => openPopup(profileContainer));
 
-addCardButton.addEventListener('click', () => togglePopup(placeContainer));
+closePlaceButton.addEventListener('click', () => openPopup(placeContainer));
+
+closeImageButton.addEventListener('click', () => openPopup(imagePopupContainer));
+*/
+
+addCardButton.addEventListener('click', () => openPopup(placeContainer));
 
 profileForm.addEventListener('submit', saveProfileForm);
 
-placeForm.addEventListener('submit', () => addCard(inputPlaceName.value, inputPlaceLink.value));
+placeForm.addEventListener('submit', (evt) => addCard(inputPlaceName.value, inputPlaceLink.value, evt));
 
-initialCards.forEach((item) => {createCard(item.name, item.link), renderCards(createCard(item.name, item.link))});
+initialCards.forEach((item) => {
+  createCard(item.name, item.link);
+  renderCards(createCard(item.name, item.link));
+});
+
+popupOverlay.addEventListener('click', (evt) => {
+  const popupContainer = evt.target.closest('.popup__container');
+  if (!popupContainer) {
+    closePopup(evt);
+  }
+})
+
