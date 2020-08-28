@@ -1,6 +1,5 @@
 .popup__container {
   min-width: 430px;
-  max-height: 330px;
   position: fixed;
   transform: translate(-50%, -50%);
   top: 50%;
@@ -13,7 +12,6 @@
   border-radius: 10px;
   padding: 36px;
   box-sizing: border-box;
-  margin: auto;
 }
 
 

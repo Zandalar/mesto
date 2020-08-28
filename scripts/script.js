@@ -1,4 +1,3 @@
-const popupOverlay = document.querySelector('.popup');
 const profileForm = document.querySelector('#profile__form');
 const placeForm = document.querySelector('#place__form');
 const profileContainer = document.querySelector('#popup__profile');
@@ -129,6 +128,32 @@ function setCloseButtons() {
     })
 }
 
+function listenOverlay() {
+  const overlayList = Array.from(document.querySelectorAll('.popup'));
+
+  overlayList.forEach((overlay) => {
+    overlay.addEventListener('mousedown', (evt) => {
+      const popupContainer = evt.target.closest('.popup__container');
+      const imageContainer = evt.target.closest('.popup__container_image');
+      if (!popupContainer && !imageContainer) {
+        closePopup(evt);
+      }
+    })
+  })
+}
+
+function listenKeys() {
+  document.addEventListener('keydown', function (evt) {
+    if (evt.key === "Escape") {
+      document.querySelector('.popup_opened').classList.remove('popup_opened');
+    }
+  })
+}
+
+listenOverlay();
+
+listenKeys();
+
 setCloseButtons();
 
 editButton.addEventListener('click', () => {
@@ -155,11 +180,11 @@ initialCards.forEach((item) => {
   createCard(item.name, item.link);
   renderCards(createCard(item.name, item.link));
 });
-
-popupOverlay.addEventListener('click', (evt) => {
+//Ненужный кусок старого кода закрытия попапов кликом на оверлей
+/*
+popupOverlay.addEventListener('mousedown', (evt) => {
   const popupContainer = evt.target.closest('.popup__container');
   if (!popupContainer) {
     closePopup(evt);
   }
-})
-
+}) */

@@ -70,5 +70,3 @@ const toggleButtonState = (inputList, buttonElement, classList) => {
 };
 
 enableValidation(popupArray);
-
-
