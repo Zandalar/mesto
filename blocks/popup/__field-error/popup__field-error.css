@@ -3,7 +3,10 @@
   font-weight: normal;
   font-size: 12px;
   line-height: 15px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+}
+
+@media all and (max-width: 600px) {
+  .popup__field-error {
+    max-width: 90%;
+  }
 }

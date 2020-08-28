@@ -17,3 +17,10 @@
   transform: opacity 2s;
   cursor: pointer;
 }
+
+@media all and (max-width: 600px) {
+  .popup__button-save {
+    margin: 36px 0 0;
+    height: 40px;
+  }
+}

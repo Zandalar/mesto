@@ -9,5 +9,14 @@
   font-size: 14px;
   line-height: 17px;
   color: #000;
-  margin-top: 43px;
+  margin: 43px 0 0;
+  padding: 0;
+}
+
+@media all and (max-width: 600px) {
+  .popup__field {
+    margin: 20px 0 0;
+    font-size: 12px;
+    line-height: 15px;
+  }
 }

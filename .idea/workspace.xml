@@ -27,10 +27,13 @@
   <component name="ChangeListManager">
     <list default="true" id="d025e371-7988-40af-88a0-965eee36698c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blocks/popup/__button-close/popup__button-close.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/popup/__button-close/popup__button-close.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blocks/popup/__button-save/popup__button-save.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/popup/__button-save/popup__button-save.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blocks/popup/__container/popup__container.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/popup/__container/popup__container.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blocks/popup/__field-error/popup__field-error.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/popup/__field-error/popup__field-error.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blocks/popup/__field/popup__field.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/popup/__field/popup__field.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blocks/popup/__title/popup__title.css" beforeDir="false" afterPath="$PROJECT_DIR$/blocks/popup/__title/popup__title.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/validate.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +84,7 @@
       <workItem from="1598546541587" duration="8114000" />
       <workItem from="1598596755021" duration="5946000" />
       <workItem from="1598605012146" duration="7034000" />
-      <workItem from="1598635947755" duration="575000" />
+      <workItem from="1598635947755" duration="12996000" />
     </task>
     <servers />
   </component>
@@ -117,14 +120,19 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="586" y="198" key="#Inspections/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598529364698" />
+    <state x="757" y="309" key="#Web_Browsers" timestamp="1598637552536">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="757" y="309" key="#Web_Browsers/0.0.1920.1040@0.0.1920.1040" timestamp="1598637552536" />
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598465117129">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1598465117129" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1598280869321">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1598637549603">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598280869321" />
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1598637549603" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1598465140450">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

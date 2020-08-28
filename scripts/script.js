@@ -17,12 +17,6 @@ const inputPlaceLink = document.querySelector('#place__link');
 
 const editButton = document.querySelector('.profile__info_button-edit');
 const addCardButton = document.querySelector('.profile__button-add');
-//Ненужный кусок старого кода закрытия попапов
-/*
-const closeProfileButton = document.querySelector('#profile__button-close');
-const closePlaceButton = document.querySelector('#place__button-close');
-const closeImageButton = document.querySelector('#image__button-close');
- */
 
 const initialCards = [
   {
@@ -57,6 +51,25 @@ function openPopup(container) {
 
 function closePopup(evt) {
   evt.target.closest('.popup').classList.remove('popup_opened');
+  resetErrorMessages(evt);
+}
+
+function resetErrorMessages(evt) {
+  const errorMessageList = Array.from(evt.target.closest('.popup').querySelectorAll('.popup__field-error'));
+  const inputList = Array.from(evt.target.closest('.popup').querySelectorAll('.popup__field'));
+
+    if (inputList.length > 0) {
+      evt.target.closest('.popup').querySelector('.popup__form').reset();
+
+      errorMessageList.forEach((item) => {
+        item.classList.remove('popup__field-error_active');
+        item.textContent = '';
+      })
+
+      inputList.forEach((input) => {
+        input.classList.remove('popup__field_type_error');
+      })
+    }
 }
 
 function fillProfileForm() {
@@ -121,6 +134,7 @@ function openBigPhoto(evt) {
 
 function setCloseButtons() {
   const closeButtonList = Array.from(document.querySelectorAll('.popup__button-close'));
+
     closeButtonList.forEach((closeButton) => {
       closeButton.addEventListener ('click', (evt) => {
         closePopup(evt);
@@ -128,7 +142,7 @@ function setCloseButtons() {
     })
 }
 
-function listenOverlay() {
+function closeOnOverlay() {
   const overlayList = Array.from(document.querySelectorAll('.popup'));
 
   overlayList.forEach((overlay) => {
@@ -142,7 +156,7 @@ function listenOverlay() {
   })
 }
 
-function listenKeys() {
+function closeOnEscape() {
   document.addEventListener('keydown', function (evt) {
     if (evt.key === "Escape") {
       document.querySelector('.popup_opened').classList.remove('popup_opened');
@@ -150,41 +164,22 @@ function listenKeys() {
   })
 }
 
-listenOverlay();
+function loadCards() {
+  initialCards.forEach((item) => {
+    createCard(item.name, item.link);
+    renderCards(createCard(item.name, item.link));
+  })
+}
 
-listenKeys();
-
+closeOnOverlay();
+closeOnEscape();
 setCloseButtons();
+loadCards();
 
+addCardButton.addEventListener('click', () => openPopup(placeContainer));
+profileForm.addEventListener('submit', saveProfileForm);
+placeForm.addEventListener('submit', (evt) => addCard(inputPlaceName.value, inputPlaceLink.value, evt));
 editButton.addEventListener('click', () => {
   openPopup(profileContainer);
   fillProfileForm();
-});
-
-//Ненужный кусок старого кода закрытия попапов
-/*
-closeProfileButton.addEventListener('click', () => openPopup(profileContainer));
-
-closePlaceButton.addEventListener('click', () => openPopup(placeContainer));
-
-closeImageButton.addEventListener('click', () => openPopup(imagePopupContainer));
-*/
-
-addCardButton.addEventListener('click', () => openPopup(placeContainer));
-
-profileForm.addEventListener('submit', saveProfileForm);
-
-placeForm.addEventListener('submit', (evt) => addCard(inputPlaceName.value, inputPlaceLink.value, evt));
-
-initialCards.forEach((item) => {
-  createCard(item.name, item.link);
-  renderCards(createCard(item.name, item.link));
-});
-//Ненужный кусок старого кода закрытия попапов кликом на оверлей
-/*
-popupOverlay.addEventListener('mousedown', (evt) => {
-  const popupContainer = evt.target.closest('.popup__container');
-  if (!popupContainer) {
-    closePopup(evt);
-  }
-}) */
+})
