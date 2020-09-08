@@ -2,7 +2,7 @@ const profileForm = document.querySelector('#profile__form');
 const placeForm = document.querySelector('#place__form');
 const profileContainer = document.querySelector('#popup__profile');
 const placeContainer = document.querySelector('#popup__place');
-const cardsContainer = document.querySelector('.element__table');
+
 const imagePopupContainer = document.querySelector('#popup__image');
 const templateContainer = document.querySelector('#templateContainer');
 
