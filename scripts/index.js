@@ -1,6 +1,7 @@
 // import { popupArray, checkPopupValidity } from "./validate.js";
 import { Card } from "./Card.js";
-export { openPopup };
+import { FormValidator, popupArray, checkPopupValidity } from "./FormValidator.js";
+
 export const initialCards = [
   {
     name: 'Архыз',
@@ -44,7 +45,10 @@ const inputPlaceLink = document.querySelector('#place__link');
 const editButton = document.querySelector('.profile__info_button-edit');
 const addCardButton = document.querySelector('.profile__button-add');
 
-function openPopup(container) {
+const profileValidator = new FormValidator(popupArray, profileForm);
+const cardsValidator = new FormValidator(popupArray, placeForm);
+
+export function openPopup(container) {
   container.classList.add('popup_opened');
   document.addEventListener('keydown', closeOnEscape);
   container.addEventListener('mousedown', closeOnOverlay);
@@ -72,8 +76,8 @@ function closeOnEscape(evt) {
 function setCloseButtons() {
   const closeButtonList = Array.from(document.querySelectorAll('.popup__button-close'));
 
-  closeButtonList.forEach((closeButton) => {
-    closeButton.addEventListener ('click', (evt) => {
+  closeButtonList.forEach((btn) => {
+    btn.addEventListener ('click', (evt) => {
       const popupContainer = evt.target.closest('.popup');
       closePopup(popupContainer);
     })
@@ -92,8 +96,8 @@ function saveProfileForm(evt) {
   closePopup(profileContainer);
 }
 
-function renderCards(array) {
-  const newCard = new Card(array, "#templateContainer");
+function renderCards(arr) {
+  const newCard = new Card(arr, "#templateContainer");
   cardsContainer.prepend(newCard.generateCard());
 }
 
@@ -111,13 +115,13 @@ profileForm.addEventListener('submit', saveProfileForm);
 
 editButton.addEventListener('click', () => {
   openPopup(profileContainer);
-  checkPopupValidity(profileContainer, popupArray);
+  checkPopupValidity(profileContainer);
   fillProfileForm();
 })
 
 addCardButton.addEventListener('click', () => {
   openPopup(placeContainer);
-  checkPopupValidity(placeContainer, popupArray);
+  checkPopupValidity(placeContainer);
 })
 
 setCloseButtons();
@@ -125,6 +129,9 @@ setCloseButtons();
 initialCards.forEach((item) => {
   renderCards(item);
 })
+
+profileValidator.enableValidation();
+cardsValidator.enableValidation();
 
 
 
