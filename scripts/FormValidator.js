@@ -75,7 +75,7 @@ export class FormValidator {
     })
   }
 }
-
+// функция сбрасывает ошибки при открытии, если закрыть попап, не сохранив данные и оставив поля с ошибками
 export function checkPopupValidity(container, arr) {
   const formElement = container.querySelector(arr.formSelector);
   const inputList = Array.from(formElement.querySelectorAll(arr.inputSelector));
