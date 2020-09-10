@@ -1,11 +1,4 @@
-export const popupArray = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__field',
-  submitButtonSelector: '.popup__button-save',
-  inactiveButtonClass: 'popup__button-save_disabled',
-  inputErrorClass: 'popup__field_type_error',
-  errorClass: 'popup__field-error_active'
-}
+import { popupArray } from "../utils/constants.js";
 
 export class FormValidator {
   constructor(arr, formElement) {
@@ -61,6 +54,7 @@ export class FormValidator {
   _setEventListeners() {
     const inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
     const buttonElement = this._formElement.querySelector(this._submitButtonSelector);
+
     this._toggleButtonState(inputList, buttonElement);
     inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
@@ -72,6 +66,7 @@ export class FormValidator {
 
   enableValidation() {
     const formList = Array.from(document.querySelectorAll(this._formSelector));
+
     formList.forEach((formElement) => {
       formElement.addEventListener('submit', (evt) => {
         evt.preventDefault();
@@ -81,14 +76,15 @@ export class FormValidator {
   }
 }
 
-export function checkPopupValidity(container) {
-  const formElement = container.querySelector(this._formSelector);
-  if (formElement.textContent.length > 0) {
-    const inputList = Array.from(formElement.querySelectorAll(this._inputSelector));
+export function checkPopupValidity(container, arr) {
+  const formElement = container.querySelector(arr.formSelector);
+  const inputList = Array.from(formElement.querySelectorAll(arr.inputSelector));
+  const val = new FormValidator(popupArray, container);
 
+  formElement.reset();
+  if (formElement.textContent.length > 0) {
     inputList.forEach((inputElement) => {
-      formElement.reset();
-      this._hideInputError(formElement, inputElement);
+      val._hideInputError(inputElement);
     })
   }
 }

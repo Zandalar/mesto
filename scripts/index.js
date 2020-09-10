@@ -1,33 +1,6 @@
-// import { popupArray, checkPopupValidity } from "./validate.js";
+import { popupArray, initialCards } from "../utils/constants.js";
 import { Card } from "./Card.js";
-import { FormValidator, popupArray, checkPopupValidity } from "./FormValidator.js";
-
-export const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
+import { FormValidator, checkPopupValidity } from "./FormValidator.js";
 
 const profileForm = document.querySelector('#profile__form');
 const placeForm = document.querySelector('#place__form');
@@ -68,6 +41,7 @@ function closeOnOverlay(evt) {
 
 function closeOnEscape(evt) {
   const popupOpened = document.querySelector('.popup_opened');
+
   if (evt.key === "Escape") {
     closePopup(popupOpened);
   }
@@ -110,26 +84,20 @@ placeForm.addEventListener('submit', function(evt) {
   renderCards(cardElement);
   closePopup(placeContainer);
 })
-
 profileForm.addEventListener('submit', saveProfileForm);
-
 editButton.addEventListener('click', () => {
   openPopup(profileContainer);
-  checkPopupValidity(profileContainer);
+  checkPopupValidity(profileContainer, popupArray);
   fillProfileForm();
 })
-
 addCardButton.addEventListener('click', () => {
   openPopup(placeContainer);
-  checkPopupValidity(placeContainer);
+  checkPopupValidity(placeContainer, popupArray);
 })
-
-setCloseButtons();
-
 initialCards.forEach((item) => {
   renderCards(item);
 })
-
+setCloseButtons();
 profileValidator.enableValidation();
 cardsValidator.enableValidation();
 
