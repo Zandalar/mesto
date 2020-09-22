@@ -24,17 +24,7 @@ const addCardButton = document.querySelector(".profile__button-add");
 const profileValidator = new FormValidator(popupArray, profileForm);
 const cardsValidator = new FormValidator(popupArray, placeForm);
 
-function openPopup(container) {
-  container.classList.add("popup_opened");
-  document.addEventListener("keydown", closeOnEscape);
-  container.addEventListener("mousedown", closeOnOverlay);
-}
 
-function closePopup(container) {
-  container.classList.remove("popup_opened");
-  document.removeEventListener("keydown", closeOnEscape);
-  container.removeEventListener("mousedown", closeOnOverlay);
-}
 
 export function openBigPhoto(evt) {
   imagePopupContainer.src = evt.target.src;
@@ -42,19 +32,6 @@ export function openBigPhoto(evt) {
     .closest(".element")
     .querySelector(".element__title").textContent;
   openPopup(imagePopup);
-}
-
-function closeOnOverlay(evt) {
-  if (evt.target === evt.currentTarget) {
-    closePopup(evt.target);
-  }
-}
-
-function closeOnEscape(evt) {
-  const popupOpened = document.querySelector(".popup_opened");
-  if (evt.key === "Escape") {
-    closePopup(popupOpened);
-  }
 }
 
 function setCloseButtons() {
@@ -82,10 +59,10 @@ function saveProfileForm(evt) {
   closePopup(profileContainer);
 }
 
-function renderCards(arr) {
-  const newCard = new Card(arr, "#templateContainer");
-  cardsContainer.prepend(newCard.generateCard());
-}
+// function renderCards(arr) {
+//   const newCard = new Card(arr, "#templateContainer");
+//   cardsContainer.prepend(newCard.generateCard());
+// }
 
 placeForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
@@ -96,19 +73,24 @@ placeForm.addEventListener("submit", function (evt) {
   renderCards(cardElement);
   closePopup(placeContainer);
 });
+
 profileForm.addEventListener("submit", saveProfileForm);
+
 editButton.addEventListener("click", () => {
   openPopup(profileContainer);
   checkPopupValidity(profileContainer, popupArray);
   fillProfileForm();
 });
+
 addCardButton.addEventListener("click", () => {
   openPopup(placeContainer);
   checkPopupValidity(placeContainer, popupArray);
 });
+
 initialCards.forEach((item) => {
   renderCards(item);
 });
+
 setCloseButtons();
 profileValidator.enableValidation();
 cardsValidator.enableValidation();

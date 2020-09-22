@@ -1,0 +1,19 @@
+{
+  "name": "mesto",
+  "version": "0.0.1",
+  "description": "### Учебный **[проект](https://zandalar.github.io/mesto/)** от **[Яндекс.Практикум](https://praktikum.yandex.ru/)**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zandalar/mesto.git"
+  },
+  "author": "Vitaliy Masich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zandalar/mesto/issues"
+  },
+  "homepage": "https://github.com/Zandalar/mesto#readme"
+}
