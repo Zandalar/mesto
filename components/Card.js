@@ -12,35 +12,34 @@ export default class Card {
 
   generateCard() {
     this._element = this._getTemplate();
-    this._element.querySelector(".element__photo").src = this._link;
-    this._element.querySelector(".element__photo").alt = this._name;
-    this._element.querySelector(".element__title").textContent = this._name;
+    this._element.querySelector('.element__photo').src = this._link;
+    this._element.querySelector('.element__photo').alt = this._name;
+    this._element.querySelector('.element__title').textContent = this._name;
     this._setEventListeners();
     return this._element;
   }
 
-  _addLike() {
-    this._element.querySelector(".element__button-like").classList.toggle("element__button-like_active");
+  _addLike(evt) {
+    evt.target.classList.toggle('element__button-like_active');
   }
 
-  _deleteCard() {
-    const delButton = this._element.querySelector('.element__button-delete');
-    delButton.closest(".element").remove();
+  _deleteCard(evt) {
+    evt.target.closest('.element').remove();
   }
 
   _setEventListeners() {
     this._element
-      .querySelector(".element__button-like")
-      .addEventListener('click', () => {
-        this._addLike();
+      .querySelector('.element__button-like')
+      .addEventListener('click', (evt) => {
+        this._addLike(evt);
       });
     this._element
-      .querySelector(".element__button-delete")
-      .addEventListener('click', () => {
-        this._deleteCard();
+      .querySelector('.element__button-delete')
+      .addEventListener('click', (evt) => {
+        this._deleteCard(evt);
       });
     this._element
-      .querySelector(".element__photo")
+      .querySelector('.element__photo')
       .addEventListener('click', () => {
         this._handleCardClick();
       });
