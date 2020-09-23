@@ -1,10 +1,9 @@
-import { openBigPhoto } from "./index.js";
-
-export class Card {
-  constructor(arr, selector) {
+export default class Card {
+  constructor(arr, selector, { handleCardClick }) {
     this._name = arr.name;
     this._link = arr.link;
     this._selector = selector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -20,29 +19,30 @@ export class Card {
     return this._element;
   }
 
-  _addLike(evt) {
-    evt.target.classList.toggle("element__button-like_active");
+  _addLike() {
+    this._element.querySelector(".element__button-like").classList.toggle("element__button-like_active");
   }
 
-  _deleteCard(evt) {
-    evt.target.closest(".element").remove();
+  _deleteCard() {
+    const delButton = this._element.querySelector('.element__button-delete');
+    delButton.closest(".element").remove();
   }
 
   _setEventListeners() {
     this._element
       .querySelector(".element__button-like")
-      .addEventListener("click", (evt) => {
-        this._addLike(evt);
+      .addEventListener('click', () => {
+        this._addLike();
       });
     this._element
       .querySelector(".element__button-delete")
-      .addEventListener("click", (evt) => {
-        this._deleteCard(evt);
+      .addEventListener('click', () => {
+        this._deleteCard();
       });
     this._element
       .querySelector(".element__photo")
-      .addEventListener("click", (evt) => {
-        openBigPhoto(evt);
+      .addEventListener('click', () => {
+        this._handleCardClick();
       });
   }
 }

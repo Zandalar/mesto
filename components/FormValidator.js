@@ -1,6 +1,6 @@
 import { popupArray } from "../utils/constants.js";
 
-export class FormValidator {
+export default class FormValidator {
   constructor(arr, formElement) {
     this._formSelector = arr.formSelector;
     this._inputSelector = arr.inputSelector;
