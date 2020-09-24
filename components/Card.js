@@ -1,7 +1,6 @@
 export default class Card {
-  constructor(arr, selector, { handleCardClick }) {
-    this._name = arr.name;
-    this._link = arr.link;
+  constructor(arr, selector, handleCardClick) {
+    this._arr = arr;
     this._selector = selector;
     this._handleCardClick = handleCardClick;
   }
@@ -12,9 +11,9 @@ export default class Card {
 
   generateCard() {
     this._element = this._getTemplate();
-    this._element.querySelector('.element__photo').src = this._link;
-    this._element.querySelector('.element__photo').alt = this._name;
-    this._element.querySelector('.element__title').textContent = this._name;
+    this._element.querySelector('.element__photo').src = this._arr.link;
+    this._element.querySelector('.element__photo').alt = this._arr.name;
+    this._element.querySelector('.element__title').textContent = this._arr.name;
     this._setEventListeners();
     return this._element;
   }
@@ -25,6 +24,12 @@ export default class Card {
 
   _deleteCard(evt) {
     evt.target.closest('.element').remove();
+  }
+
+  _renderBigPhoto() {
+    const imageData = {};
+    imageData.src = this._element.querySelector('.element__photo').src;
+    imageData.textContent = this._element.querySelector('.element__title').textContent;
   }
 
   _setEventListeners() {
@@ -41,7 +46,8 @@ export default class Card {
     this._element
       .querySelector('.element__photo')
       .addEventListener('click', () => {
-        this._handleCardClick();
+        this._renderBigPhoto(this._element);
+        this._handleCardClick(this._arr);
       });
   }
 }
