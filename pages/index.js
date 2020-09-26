@@ -5,42 +5,49 @@ import Section from '../components/Section.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
 import { popupArray, initialCards, profileForm, placeForm, profileContainer, placeContainer,
-  cardsContainer, imageContainer, profileName, profileDescription, inputProfileName,
-  inputProfileDescription, editButton, addCardButton} from '../utils/constants.js';
+  cardsContainer, imageContainer, profileName, profileDescription, editButton, addCardButton, inputPlaceName, inputPlaceLink} from '../utils/constants.js';
 
 const profileValidator = new FormValidator(popupArray, profileForm);
 const cardsValidator = new FormValidator(popupArray, placeForm);
-const cardsList = new Section({ data: initialCards, renderer: renderItems }, cardsContainer);
+const cardsList = new Section({ data: initialCards, renderer: renderNewCard }, cardsContainer);
 const imagePopup = new PopupWithImage(imageContainer);
-const cardPopup = new PopupWithForm(placeContainer, renderNewCard);
+const cardPopup = new PopupWithForm(placeContainer, addNewCard);
 const profilePopup = new PopupWithForm(profileContainer, fillProfileForm);
-const userInfo = new UserInfo({ name: profileName, description: profileDescription });
-
-
-function renderItems(data) {
-  const handleCardClick = (imageData) => {
-    imagePopup.open(imageData)
-  }
-  const card = new Card(data, '#templateContainer', handleCardClick);
-  cardsList.addItem(card.generateCard());
-}
-
-function fillProfileForm(data) {
-  userInfo.setUserInfo(data.name, data.description);
-  profilePopup.close();
-}
+const userInfo = new UserInfo({ nameElement: profileName, descriptionElement: profileDescription });
 
 function renderNewCard(data) {
-  renderItems(data);
+  const card = new Card(data, '#templateContainer', openBigPhoto);
+  cardsList.addItem(card.generateCard());
   cardPopup.close();
 }
 
-editButton.addEventListener('click', () => {
-  const infoList = userInfo.getUserInfo();
+function addNewCard() {
+  const card = new Card({
+    name: inputPlaceName.value,
+    link: inputPlaceLink.value
+    },
+    '#templateContainer',
+    openBigPhoto);
+  cardsList.addItem(card.generateCard());
+  cardPopup.close();
+}
 
+function openBigPhoto(evt) {
+  imagePopup.open({
+      photoName: evt.target.closest(".element").querySelector(".element__title").textContent,
+      photoLink: evt.target.src
+    }
+  )
+}
+
+function fillProfileForm() {
+  userInfo.setUserInfo();
+  profilePopup.close();
+}
+
+editButton.addEventListener('click', () => {
   profilePopup.open();
-  inputProfileName.value = infoList.name;
-  inputProfileDescription.value = infoList.description;
+  userInfo.getUserInfo();
   profileValidator.enableValidation();
 })
 
