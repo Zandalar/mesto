@@ -29,12 +29,6 @@ export default class Card {
     evt.target.closest('.element').remove();
   }
 
-  // _renderBigPhoto(photoElement, titleElement) {
-  //   const imageData = {};
-  //   imageData.src = photoElement.src;
-  //   imageData.textContent = titleElement.textContent;
-  // }
-
   _setEventListeners() {
     this._element
       .querySelector('.element__button-like')

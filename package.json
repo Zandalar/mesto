@@ -4,7 +4,7 @@
   "description": "### Учебный **[проект](https://zandalar.github.io/mesto/)** от **[Яндекс.Практикум](https://praktikum.yandex.ru/)**",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "rd /s /q dist && webpack",
     "dev": "webpack-dev-server --open --watch"
   },
   "repository": {

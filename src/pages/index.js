@@ -1,20 +1,43 @@
-import './index.css';
+import '../pages/index.css';
 import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import Section from '../components/Section.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
-import { popupArray, initialCards, profileForm, placeForm, profileContainer, placeContainer,
-  cardsContainer, imageContainer, profileName, profileDescription, editButton, addCardButton, inputPlaceName, inputPlaceLink} from '../utils/constants.js';
+import { checkPopupValidity } from '../components/FormValidator.js';
+import {
+  popupArray,
+  initialCards,
+  profileForm,
+  placeForm,
+  profileContainer,
+  placeContainer,
+  cardsContainer,
+  imageContainer,
+  profileName,
+  profileDescription,
+  editButton,
+  addCardButton,
+  inputPlaceName,
+  inputPlaceLink,
+} from '../utils/constants.js';
 
 const profileValidator = new FormValidator(popupArray, profileForm);
 const cardsValidator = new FormValidator(popupArray, placeForm);
-const cardsList = new Section({ data: initialCards, renderer: renderNewCard }, cardsContainer);
+const cardsList = new Section({
+  data: initialCards,
+  renderer: renderNewCard
+  },
+  cardsContainer
+);
 const imagePopup = new PopupWithImage(imageContainer);
 const cardPopup = new PopupWithForm(placeContainer, addNewCard);
 const profilePopup = new PopupWithForm(profileContainer, fillProfileForm);
-const userInfo = new UserInfo({ nameElement: profileName, descriptionElement: profileDescription });
+const userInfo = new UserInfo({
+  nameElement: profileName,
+  descriptionElement: profileDescription,
+});
 
 function renderNewCard(data) {
   const card = new Card(data, '#templateContainer', openBigPhoto);
@@ -23,22 +46,25 @@ function renderNewCard(data) {
 }
 
 function addNewCard() {
-  const card = new Card({
-    name: inputPlaceName.value,
-    link: inputPlaceLink.value
+  const card = new Card(
+    {
+      name: inputPlaceName.value,
+      link: inputPlaceLink.value,
     },
     '#templateContainer',
-    openBigPhoto);
+    openBigPhoto
+  );
   cardsList.addItem(card.generateCard());
   cardPopup.close();
 }
 
 function openBigPhoto(evt) {
   imagePopup.open({
-      photoName: evt.target.closest(".element").querySelector(".element__title").textContent,
-      photoLink: evt.target.src
-    }
-  )
+    photoName: evt.target.closest('.element')
+      .querySelector('.element__title')
+      .textContent,
+    photoLink: evt.target.src,
+  });
 }
 
 function fillProfileForm() {
@@ -49,13 +75,15 @@ function fillProfileForm() {
 editButton.addEventListener('click', () => {
   profilePopup.open();
   userInfo.getUserInfo();
+  checkPopupValidity(profileContainer, popupArray);
   profileValidator.enableValidation();
-})
+});
 
 addCardButton.addEventListener('click', () => {
   cardPopup.open();
+  checkPopupValidity(placeContainer, popupArray);
   cardsValidator.enableValidation();
-})
+});
 
 imagePopup.setEventListeners();
 cardPopup.setEventListeners();

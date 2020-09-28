@@ -40,6 +40,7 @@ export const profileContainer = document.querySelector('#popup__profile');
 export const placeContainer = document.querySelector('#popup__place');
 export const cardsContainer = document.querySelector('.element__table');
 export const imageContainer = document.querySelector('#popup__image');
+export const templateContainer = document.querySelector('#templateContainer');
 
 export const profileName = document.querySelector('.profile__info_name');
 export const profileDescription = document.querySelector('.profile__info_about');
