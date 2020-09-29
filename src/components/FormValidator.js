@@ -1,5 +1,3 @@
-import { popupArray } from "../utils/constants.js";
-
 export default class FormValidator {
   constructor(arr, formElement) {
     this._formSelector = arr.formSelector;
@@ -14,8 +12,7 @@ export default class FormValidator {
   _showInputError(inputElement) {
     const errorElement = this._formElement.querySelector(
       `#${inputElement.id}-error`
-    );
-
+    )
     inputElement.classList.add(this._inputErrorClass);
     errorElement.classList.add(this._errorClass);
     errorElement.textContent = inputElement.validationMessage;
@@ -24,8 +21,7 @@ export default class FormValidator {
   _hideInputError(inputElement) {
     const errorElement = this._formElement.querySelector(
       `#${inputElement.id}-error`
-    );
-
+    )
     inputElement.classList.remove(this._inputErrorClass);
     errorElement.classList.remove(this._errorClass);
     errorElement.textContent = '';
@@ -42,7 +38,7 @@ export default class FormValidator {
   _hasInvalidInput(inputList) {
     return inputList.some((inputElement) => {
       return !inputElement.validity.valid;
-    });
+    })
   }
 
   _toggleButtonState(inputList, buttonElement) {
@@ -58,41 +54,36 @@ export default class FormValidator {
   _setEventListeners() {
     const inputList = Array.from(
       this._formElement.querySelectorAll(this._inputSelector)
-    );
+    )
     const buttonElement = this._formElement.querySelector(
       this._submitButtonSelector
-    );
+    )
 
     this._toggleButtonState(inputList, buttonElement);
     inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
         this._checkValidity(inputElement);
         this._toggleButtonState(inputList, buttonElement);
-      });
-    });
+      })
+    })
+  }
+
+  _checkInputValidity() {
+    const inputList = Array.from(this._formElement.querySelectorAll('.popup__field'));
+    inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement);
+    })
   }
 
   enableValidation() {
     const formList = Array.from(document.querySelectorAll(this._formSelector));
-
+    this._checkInputValidity();
     formList.forEach((formElement) => {
       formElement.addEventListener('submit', (evt) => {
         evt.preventDefault();
-      });
+      })
       this._setEventListeners();
-    });
+    })
   }
 }
 // функция сбрасывает ошибки при открытии, если закрыть попап, не сохранив данные и оставив поля с ошибками
-export function checkPopupValidity(container, arr) {
-  const formElement = container.querySelector(arr.formSelector);
-  const inputList = Array.from(formElement.querySelectorAll(arr.inputSelector));
-  const val = new FormValidator(popupArray, container);
-
-  formElement.reset();
-  if (formElement.textContent.length > 0) {
-    inputList.forEach((inputElement) => {
-      val._hideInputError(inputElement);
-    });
-  }
-}

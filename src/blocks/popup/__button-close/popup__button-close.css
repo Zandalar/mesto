@@ -11,13 +11,13 @@
   border: none;
   padding: 0;
   outline: none;
+  transition: all .5s ease;
 }
 
 .popup__button-close:hover {
   opacity: .6;
   cursor: pointer;
-  transform: rotate(180deg);
-  transition: all .3s ease;
+  transform: rotate(360deg);
 }
 
 @media all and (max-width: 600px) {

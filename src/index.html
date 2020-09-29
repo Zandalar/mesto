@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
   <title>Mesto</title>
 </head>
 
 <body>
   <div class="page">
     <div class="content">
+
       <header class="header">
         <img class="header__logo" src="./images/header__logo.svg" alt="Логотип сайта">
       </header>
@@ -40,9 +40,9 @@
           <button class="popup__button-close" id="profile__button-close" type="button"></button>
           <h2 class="popup__title">Редактировать профиль</h2>
           <form class="popup__form" id="profile__form" novalidate>
-            <input class="popup__field" id="profile__name" type="text" minlength="2" maxlength="40" required>
+            <input class="popup__field" id="profile__name" name="name" type="text" minlength="2" maxlength="40" required>
             <span class="popup__field-error" id="profile__name-error"></span>
-            <input class="popup__field" id="profile__description" type="text" minlength="2" maxlength="200" required>
+            <input class="popup__field" id="profile__description" name="description" type="text" minlength="2" maxlength="200" required>
             <span class="popup__field-error" id="profile__description-error"></span>
             <button class="popup__button-save" id="profile__button-save" type="submit">Сохранить</button>
           </form>
@@ -54,9 +54,9 @@
           <button class="popup__button-close" id="place__button-close" type="button"></button>
           <h2 class="popup__title">Новое место</h2>
           <form class="popup__form" id="place__form" novalidate>
-            <input class="popup__field" id="place__name" type="text" placeholder="Название" minlength="1" maxlength="30" required>
+            <input class="popup__field" id="place__name" name="name" type="text" placeholder="Название" minlength="1" maxlength="30" required>
             <span class="popup__field-error" id="place__name-error"></span>
-            <input class="popup__field" id="place__link" type="url" placeholder="Ссылка на картинку" required>
+            <input class="popup__field" id="place__link" name="link" type="url" placeholder="Ссылка на картинку" required>
             <span class="popup__field-error" id="place__link-error"></span>
             <button class="popup__button-save" id="place__button-save" type="submit">Создать</button>
           </form>
@@ -65,7 +65,7 @@
 
       <div class="popup" id="popup__image">
         <div class="popup__container_image">
-          <img class="popup__image" src='' alt=''>
+          <img class="popup__image" src='#' alt=''>
           <h2 class="popup__title_image"></h2>
           <button class="popup__button-close" id="image__button-close" type="button"></button>
         </div>
@@ -86,6 +86,5 @@
       </template>
     </div>
   </div>
-<script type="module" src="./pages/index.js"></script>
 </body>
 </html>
