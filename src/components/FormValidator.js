@@ -68,7 +68,7 @@ export default class FormValidator {
     })
   }
 
-  _checkInputValidity() {
+  checkInputValidity() {
     const inputList = Array.from(this._formElement.querySelectorAll('.popup__field'));
     inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
@@ -77,7 +77,6 @@ export default class FormValidator {
 
   enableValidation() {
     const formList = Array.from(document.querySelectorAll(this._formSelector));
-    this._checkInputValidity();
     formList.forEach((formElement) => {
       formElement.addEventListener('submit', (evt) => {
         evt.preventDefault();

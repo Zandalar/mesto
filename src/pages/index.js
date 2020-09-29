@@ -53,16 +53,19 @@ function fillProfileInputs() {
 
 editButton.addEventListener('click', () => {
   profilePopup.open();
+  profileValidator.checkInputValidity();
   fillProfileInputs();
-  profileValidator.enableValidation();
 });
 
 addCardButton.addEventListener('click', () => {
   cardPopup.open();
-  cardsValidator.enableValidation();
+  cardsValidator.checkInputValidity();
 });
 
 imagePopup.setEventListeners();
 cardPopup.setEventListeners();
 profilePopup.setEventListeners();
+
+profileValidator.enableValidation();
+cardsValidator.enableValidation();
 cardsList.renderItems();
