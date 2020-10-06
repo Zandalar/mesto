@@ -9,13 +9,14 @@
 <body>
   <div class="page">
     <div class="content">
+
       <header class="header">
-        <img class="header__logo" src="./src/images/header__logo.svg" alt="Логотип сайта">
+        <img class="header__logo" src="./images/header__logo.svg" alt="Логотип сайта">
       </header>
 
       <main class="main">
         <section class="profile">
-          <img class="profile__avatar" src="./src/images/jak_iv_kusto.png" alt="Фото профиля">
+          <img class="profile__avatar" src="./images/jak_iv_kusto.png" alt="Фото профиля">
           <div class="profile__info">
             <h1 class="profile__info_name">Жак-Ив Кусто</h1>
             <button class="profile__info_button-edit" id="button-edit" name="button-edit" type="button"></button>
@@ -39,9 +40,9 @@
           <button class="popup__button-close" id="profile__button-close" type="button"></button>
           <h2 class="popup__title">Редактировать профиль</h2>
           <form class="popup__form" id="profile__form" novalidate>
-            <input class="popup__field" id="profile__name" type="text" minlength="2" maxlength="40" required>
+            <input class="popup__field" id="profile__name" name="name" type="text" minlength="2" maxlength="40" required>
             <span class="popup__field-error" id="profile__name-error"></span>
-            <input class="popup__field" id="profile__description" type="text" minlength="2" maxlength="200" required>
+            <input class="popup__field" id="profile__description" name="description" type="text" minlength="2" maxlength="200" required>
             <span class="popup__field-error" id="profile__description-error"></span>
             <button class="popup__button-save" id="profile__button-save" type="submit">Сохранить</button>
           </form>
@@ -53,9 +54,9 @@
           <button class="popup__button-close" id="place__button-close" type="button"></button>
           <h2 class="popup__title">Новое место</h2>
           <form class="popup__form" id="place__form" novalidate>
-            <input class="popup__field" id="place__name" type="text" placeholder="Название" minlength="1" maxlength="30" required>
+            <input class="popup__field" id="place__name" name="name" type="text" placeholder="Название" minlength="1" maxlength="30" required>
             <span class="popup__field-error" id="place__name-error"></span>
-            <input class="popup__field" id="place__link" type="url" placeholder="Ссылка на картинку" required>
+            <input class="popup__field" id="place__link" name="link" type="url" placeholder="Ссылка на картинку" required>
             <span class="popup__field-error" id="place__link-error"></span>
             <button class="popup__button-save" id="place__button-save" type="submit">Создать</button>
           </form>
@@ -70,6 +71,14 @@
         </div>
       </div>
 
+      <div class="popup" id="popup__deletion">
+        <div class="popup__container">
+          <button class="popup__button-close" id="delition__button-close" type="button"></button>
+          <h2 class="popup__title">Вы уверены?</h2>
+          <button class="popup__button-save" id="delition__button-confirm" type="button">Да</button>
+        </div>
+      </div>
+
       <template id="templateContainer">
         <li class="element">
           <button class="element__button-delete" type="button">
@@ -79,7 +88,10 @@
           <img class="element__photo">
           <div class="element__description">
             <h2 class="element__title"></h2>
-            <button class="element__button-like" type="button"></button>
+            <div class="element__like-container">
+              <button class="element__button-like" type="button"></button>
+              <div class="element__like-count"></div>
+            </div>
           </div>
         </li>
       </template>

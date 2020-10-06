@@ -5,14 +5,14 @@ export default class Popup {
 
   open() {
     this._popupSelector.classList.add('popup_opened');
-    document.addEventListener('keydown', (evt) => this._handleEscClose(evt));
-    this._popupSelector.addEventListener('mousedown', (evt) => this._handleOverlayClose(evt));
+    document.addEventListener('keydown', this._handleEscClose.bind(this));
+    this._popupSelector.addEventListener('mousedown', this._handleOverlayClose.bind(this));
   }
 
   close() {
     this._popupSelector.classList.remove('popup_opened');
-    document.removeEventListener('keydown', (evt) => this._handleEscClose(evt));
-    this._popupSelector.removeEventListener('mousedown', (evt) => this._handleOverlayClose(evt));
+    document.removeEventListener('keydown', this._handleEscClose);
+    this._popupSelector.removeEventListener('mousedown', this._handleOverlayClose);
   }
 
   _handleEscClose(evt) {

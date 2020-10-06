@@ -33,20 +33,3 @@ export const popupArray = {
   inputErrorClass: 'popup__field_type_error',
   errorClass: 'popup__field-error_active'
 }
-
-export const profileForm = document.querySelector('#profile__form');
-export const placeForm = document.querySelector('#place__form');
-export const profileContainer = document.querySelector('#popup__profile');
-export const placeContainer = document.querySelector('#popup__place');
-export const cardsContainer = document.querySelector('.element__table');
-export const imageContainer = document.querySelector('#popup__image');
-
-export const profileName = document.querySelector('.profile__info_name');
-export const profileDescription = document.querySelector('.profile__info_about');
-export const inputProfileName = document.querySelector('#profile__name');
-export const inputProfileDescription = document.querySelector('#profile__description');
-export const inputPlaceName = document.querySelector('#place__name');
-export const inputPlaceLink = document.querySelector('#place__link');
-
-export const editButton = document.querySelector('.profile__info_button-edit');
-export const addCardButton = document.querySelector('.profile__button-add');

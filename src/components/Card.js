@@ -1,13 +1,13 @@
 export default class Card {
-  constructor({ name, link }, selector, handleCardClick) {
-    this._name = name;
-    this._link = link;
+  constructor(data, selector, handleCardClick) {
+    this._name = data.name;
+    this._link = data.link;
     this._selector = selector;
     this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
-    return document.querySelector(this._selector).content.cloneNode(true);
+    return this._selector.content.cloneNode(true);
   }
 
   generateCard() {
@@ -42,6 +42,8 @@ export default class Card {
       });
     this._element
       .querySelector('.element__photo')
-      .addEventListener('click', this._handleCardClick)
+      .addEventListener('click', () => {
+        this._handleCardClick(this._name, this._link);
+      })
   }
 }

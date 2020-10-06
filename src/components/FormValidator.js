@@ -1,5 +1,3 @@
-import { popupArray } from "../utils/constants.js";
-
 export default class FormValidator {
   constructor(arr, formElement) {
     this._formSelector = arr.formSelector;
@@ -70,9 +68,15 @@ export default class FormValidator {
     })
   }
 
+  checkInputValidity() {
+    const inputList = Array.from(this._formElement.querySelectorAll('.popup__field'));
+    inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement);
+    })
+  }
+
   enableValidation() {
     const formList = Array.from(document.querySelectorAll(this._formSelector));
-
     formList.forEach((formElement) => {
       formElement.addEventListener('submit', (evt) => {
         evt.preventDefault();
@@ -82,14 +86,3 @@ export default class FormValidator {
   }
 }
 // функция сбрасывает ошибки при открытии, если закрыть попап, не сохранив данные и оставив поля с ошибками
-export function checkPopupValidity(container, arr) {
-  const formElement = container.querySelector(arr.formSelector);
-  const inputList = Array.from(formElement.querySelectorAll(arr.inputSelector));
-  const val = new FormValidator(popupArray, container);
-
-  if (formElement.textContent.length > 0) {
-    inputList.forEach((inputElement) => {
-      val._hideInputError(inputElement);
-    })
-  }
-}
