@@ -73,9 +73,21 @@
 
       <div class="popup" id="popup__deletion">
         <div class="popup__container">
-          <button class="popup__button-close" id="delition__button-close" type="button"></button>
+          <button class="popup__button-close" id="deletion__button-close" type="button"></button>
           <h2 class="popup__title">Вы уверены?</h2>
-          <button class="popup__button-save" id="delition__button-confirm" type="button">Да</button>
+          <button class="popup__button-confirm" id="deletion__button-confirm" type="button">Да</button>
+        </div>
+      </div>
+
+      <div class="popup" id="popup__avatar">
+        <div class="popup__container">
+          <button class="popup__button-close" id="avatar__button-close" type="button"></button>
+          <h2 class="popup__title">Обновить аватар</h2>
+          <form class="popup__form" id="avatar__form" novalidate>
+            <input class="popup__field" id="avatar__link" name="avatar__link" type="url" placeholder="Ссылка на картинку" required>
+            <span class="popup__field-error" id="avatar__link-error"></span>
+            <button class="popup__button-save" id="avatar__button-save" type="submit">Сохранить</button>
+          </form>
         </div>
       </div>
 
