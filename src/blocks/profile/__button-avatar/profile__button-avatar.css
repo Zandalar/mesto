@@ -1,6 +1,18 @@
 .profile__button-avatar {
-  max-width: 120px;
-  max-height: 120px;
-  margin-right: 30px;
-  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  background-image: url(../../../images/button__edit_big.svg);
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  z-index: 2;
+  display: none;
+}
+
+.profile__button-avatar:hover {
+  display: flex;
+  opacity: .5;
 }

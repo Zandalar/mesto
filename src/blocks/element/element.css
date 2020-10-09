@@ -7,6 +7,7 @@
 @import url(./__button-delete/element__button-delete.css);
 @import url(./__button-delete/_top/element__button-delete_top.css);
 @import url(./__button-delete/_bottom/element__button-delete_bottom.css);
+@import url(./__button-delete/_active/element__button-delete_active.css);
 @import url(./__like-container/element__like-container.css);
 @import url(./__like-count/element__like-count.css);
 

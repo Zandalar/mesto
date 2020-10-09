@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
   <title>Mesto</title>
 </head>
 
@@ -16,13 +17,15 @@
 
       <main class="main">
         <section class="profile">
-          <button class="profile__button-avatar" id="avatar__button-edit" type="button">
-            <img class="profile__avatar" src="./images/jak_iv_kusto.png" alt="Фото профиля">
-          </button>
+          <div class="profile__avatar-container">
+
+            <img class="profile__avatar" id="avatar" name="avatar" src="#" alt="Фото профиля">
+            <button class="profile__button-avatar" id="avatar__button-edit" type="button"></button>
+          </div>
           <div class="profile__info">
-            <h1 class="profile__info_name">Жак-Ив Кусто</h1>
+            <h1 class="profile__info_name"></h1>
             <button class="profile__info_button-edit" id="button-edit" name="button-edit" type="button"></button>
-            <h2 class="profile__info_about">Исследователь океана</h2>
+            <h2 class="profile__info_about"></h2>
           </div>
           <button class="profile__button-add" id="button-add" name="button-add" type="button"></button>
         </section>
@@ -44,7 +47,7 @@
           <form class="popup__form" id="profile__form" novalidate>
             <input class="popup__field" id="profile__name" name="name" type="text" minlength="2" maxlength="40" required>
             <span class="popup__field-error" id="profile__name-error"></span>
-            <input class="popup__field" id="profile__description" name="description" type="text" minlength="2" maxlength="200" required>
+            <input class="popup__field" id="profile__description" name="about" type="text" minlength="2" maxlength="200" required>
             <span class="popup__field-error" id="profile__description-error"></span>
             <button class="popup__button-save" id="profile__button-save" type="submit">Сохранить</button>
           </form>
@@ -111,5 +114,6 @@
       </template>
     </div>
   </div>
+<script type="module" src="./pages/index.js"></script>
 </body>
 </html>

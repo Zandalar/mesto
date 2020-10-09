@@ -11,6 +11,7 @@
     grid-template-columns: 18px;
     grid-template-rows: 4.5px 13.5px;
     column-gap: 1.3px;
+    visibility: hidden;
 }
 
 .element__button-delete:hover {
