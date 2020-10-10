@@ -22,11 +22,11 @@ export default class Card {
     this._photo = this._element.querySelector('.element__photo');
     this._title = this._element.querySelector('.element__title');
     this._likesCount = this._element.querySelector('.element__like-count');
+    this._card = this._element.querySelector('.element');
     this._photo.src = this._link;
     this._photo.alt = this._name;
     this._title.textContent = this._name;
     this._likesCount.textContent = this._likes.length;
-
     this._showDeleteButton();
     this._showLikeButton();
     this._setEventListeners();
@@ -59,8 +59,8 @@ export default class Card {
     }
   }
 
-  delCard() {
-    this._element.remove();
+  removeCard() {
+    this._card.remove();
   }
 
   _setEventListeners() {
