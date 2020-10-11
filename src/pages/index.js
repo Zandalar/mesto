@@ -6,9 +6,9 @@ import PopupWithImage from '../components/PopupWithImage.js';
 import Section from '../components/Section.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
-import Api from "../components/Api.js";
-import { popupArray } from "../utils/constants.js";
-import PopupWithSubmit from "../components/PopupWithSubmit.js";
+import Api from '../components/Api.js';
+import { popupArray } from '../utils/constants.js';
+import PopupWithSubmit from '../components/PopupWithSubmit.js';
 //Containers
 const profileContainer = document.querySelector('#popup__profile');
 const placeContainer = document.querySelector('#popup__place');
@@ -104,7 +104,7 @@ function loadInitialCards() {
   api
     .getInitialCards()
     .then((res) => renderInitialCards(res))
-    .catch((err) => console.log(`Что-то пошло не так: ${err}`));
+    .catch((err) => console.log(`Что-то пошло не так: ${err}`))
 }
 
 function renderInitialCards(data) {
