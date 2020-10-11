@@ -30,6 +30,10 @@ const profileAvatar = document.querySelector('.profile__avatar');
 const editButton = document.querySelector('.profile__info_button-edit');
 const addCardButton = document.querySelector('.profile__button-add');
 const editAvatarButton = document.querySelector('.profile__button-avatar');
+const submitProfileButton = document.querySelector('#profile__button-save');
+const submitPlaceButton = document.querySelector('#place__button-save');
+const submitAvatarButton = document.querySelector('#avatar__button-save');
+const submitDeleteButton = document.querySelector('#deletion__button-confirm');
 // Classes exemplars
 const profileValidator = new FormValidator(popupArray, profileForm);
 const cardsValidator = new FormValidator(popupArray, placeForm);
@@ -53,10 +57,12 @@ const api = new Api({
 })
 // Profile's functions
 function loadUserInfo(data) {
+  loader(true, submitProfileButton, 'Сохранить');
   api
     .setUserInfo(data)
     .then((res) => setProfile(res))
     .catch((err) => console.log(`Ошибка: ${err}`))
+    .finally(() => loader(false, submitProfileButton, 'Сохранить'))
 }
 
 function fillProfileInputs() {
@@ -71,23 +77,27 @@ function setProfile(data) {
 }
 // Forms functions
 function addCardToList(data) {
+  loader(true, submitPlaceButton, 'Создать');
   api
     .setNewCard(data)
     .then((data) => {
-      renderNewCard(data)
+      renderNewCard(data);
       cardPopup.close();
     })
-    .catch((err) => console.log(`Что-то пошло не так: ${err}`));
+    .catch((err) => console.log(`Что-то пошло не так: ${err}`))
+    .finally(() => loader(false, submitPlaceButton, 'Создать'))
 }
 
 function addAvatar(data) {
+  loader(true, submitAvatarButton, 'Сохранить');
   api
     .editAvatar(data)
     .then((data) => {
-      userInfo.setUserInfo(data)
+      userInfo.setUserInfo(data);
       avatarPopup.close();
     })
-    .catch((err) => console.log(`Что-то пошло не так: ${err}`));
+    .catch((err) => console.log(`Что-то пошло не так: ${err}`))
+    .finally(() => loader(false, submitAvatarButton, 'Сохранить'))
 }
 // Cards functions
 function loadInitialCards() {
@@ -113,42 +123,55 @@ function renderNewCard(data) {
   function handleDeleteIconClick() {
     deletePopup.open();
     deletePopup.setSubmit(() => {
+      loader(true, submitDeleteButton, 'Да');
       api
         .deleteCard(data._id)
         .then(() => {
           card.removeCard();
           deletePopup.close();
         })
-        .catch((err) => console.log(`Что-то пошло не так: ${err}`));
+        .catch((err) => console.log(`Что-то пошло не так: ${err}`))
+        .finally(() => loader(false, submitDeleteButton, 'Да'))
     })
   }
 
   function addLike(cardId) {
     api
       .addLike(cardId)
-      .catch((err) => console.log(`Что-то пошло не так: ${err}`));
+      .catch((err) => console.log(`Что-то пошло не так: ${err}`))
   }
 
   function removeLike(cardId) {
     api
       .deleteLike(cardId)
-      .catch((err) => console.log(`Что-то пошло не так: ${err}`));
+      .catch((err) => console.log(`Что-то пошло не так: ${err}`))
+  }
+}
+// Loader
+function loader(isLoading, button, text) {
+  if (isLoading) {
+    button.textContent = 'Сохранение...';
+  } else {
+    button.textContent = text;
   }
 }
 // Listeners and other
 editAvatarButton.addEventListener('click', () => {
   avatarPopup.open();
   avatarValidator.checkInputValidity();
+  avatarPopup.disableSubmitButton();
 })
 addCardButton.addEventListener('click', () => {
   cardPopup.open();
   cardsValidator.checkInputValidity();
-});
+  cardPopup.disableSubmitButton();
+})
 editButton.addEventListener('click', () => {
   profilePopup.open();
   profileValidator.checkInputValidity();
   fillProfileInputs();
-});
+  profilePopup.disableSubmitButton();
+})
 imagePopup.setEventListeners();
 cardPopup.setEventListeners();
 profilePopup.setEventListeners();
