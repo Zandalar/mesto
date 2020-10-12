@@ -7,6 +7,7 @@ export default class FormValidator {
     this._inputErrorClass = arr.inputErrorClass;
     this._errorClass = arr.errorClass;
     this._formElement = formElement;
+    this._inputs = this._formElement.querySelectorAll('.popup__field');
   }
 
   _showInputError(inputElement) {
@@ -67,9 +68,9 @@ export default class FormValidator {
       })
     })
   }
-
+// Эта функция убирает ошибки в инпутах, если открыть попап, а перед этим закрыть его с неправильно заполненными полями
   checkInputValidity() {
-    const inputList = Array.from(this._formElement.querySelectorAll('.popup__field'));
+    const inputList = Array.from(this._inputs);
     inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
     })

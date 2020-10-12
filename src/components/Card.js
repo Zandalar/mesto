@@ -1,5 +1,5 @@
 export default class Card {
-  constructor(data, selector, userId, handleCardClick, handleDeleteIconClick, addLike, removeLike) {
+  constructor(data, selector, userId, addLike, removeLike, handleCardClick, handleDeleteIconClick) {
     this._name = data.name;
     this._link = data.link;
     this._likes = data.likes;
@@ -23,6 +23,7 @@ export default class Card {
     this._title = this._element.querySelector('.element__title');
     this._likesCount = this._element.querySelector('.element__like-count');
     this._card = this._element.querySelector('.element');
+    this._card.id = this._cardId;
     this._photo.src = this._link;
     this._photo.alt = this._name;
     this._title.textContent = this._name;
@@ -57,10 +58,6 @@ export default class Card {
       this._likesCount.textContent = this._likes.length += 1;
       this._addLike(this._cardId);
     }
-  }
-
-  removeCard() {
-    this._card.remove();
   }
 
   _setEventListeners() {

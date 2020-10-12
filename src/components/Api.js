@@ -16,11 +16,6 @@ export default class Api {
       headers: this._headers
     })
       .then(this._checkAnswer)
-      .then((data) => {
-        document.querySelector('.profile__info_name').textContent = data.name;
-        document.querySelector('.profile__info_about').textContent = data.about;
-        document.querySelector('.profile__avatar').src = data.avatar;
-      })
   }
 
   setUserInfo(data) {

@@ -27,11 +27,6 @@ export default class Popup {
     }
   }
 
-  disableSubmitButton() {
-    this._popupSelector.querySelector('.popup__button-save').setAttribute('disabled', 'disabled');
-    this._popupSelector.querySelector('.popup__button-save').classList.add('popup__button-save_disabled');
-  }
-
   setEventListeners() {
     this._popupSelector.querySelector('.popup__button-close').addEventListener('click', this.close.bind(this));
   }
