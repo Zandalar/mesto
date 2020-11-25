@@ -1,0 +1,32 @@
+{
+  "name": "mesto-backend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "^4.16.4",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "pug": "2.0.0-beta11"
+  },
+  "main": "app.js",
+  "devDependencies": {
+    "eslint": "^7.14.0",
+    "nodemon": "^2.0.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zandalar/mesto-backend.git"
+  },
+  "author": "Vitaliy Masich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zandalar/mesto-backend/issues"
+  },
+  "homepage": "https://github.com/Zandalar/mesto-backend#readme",
+  "description": ""
+}
